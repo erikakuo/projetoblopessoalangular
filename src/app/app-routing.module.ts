@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 
-const routes: Routes = [   
+const routes: Routes = [   //obejtos de rotas e dentro das chaves atributos
 
   {path:'',redirectTo:'entrar', pathMatch:'full'},
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
 
@@ -13,25 +14,25 @@ confirmarSenha: string
 
   constructor(
     private authService: AuthService,
+    private router:Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
   confirmeSenha(event:any){
 this.confirmarSenha=event.target.value
   }
 cadastrarUsuario(){
-if(this.usuario.senha != this.confirmarSenha){
-  alert('Coloque suas senhas iguais!')
-  }
-else{
-  this.authService.Cadastrar(this.usuario).subscribe((resp:Usuario): void =>{
-   this.usuario=resp
-   
-   alert('Casdastrado com sucesso!')
-  })
-  
-}
-}
-
-}
+  if (this.confirmarSenha === this.usuario.senha) {
+     
+        this.authService.Cadastrar(this.usuario).subscribe((resp: Usuario) => {
+          this.usuario = resp;
+          this.router.navigate(['/entrar']);
+          alert('Usuário cadastrado com sucesso!');
+        });
+      } else {
+        alert('As senha não estão iguais.');
+      }
+    }
+    }
+    

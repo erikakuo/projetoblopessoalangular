@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TemaComponent } from './tema/tema.component';
 
 const routes: Routes = [   //obejtos de rotas e dentro das chaves atributos
 
@@ -10,7 +11,8 @@ const routes: Routes = [   //obejtos de rotas e dentro das chaves atributos
 
   {path:'entrar', component: EntrarComponent},
   {path:'cadastrar', component: CadastrarComponent},
-  {path:'inicio', component: InicioComponent}
+  {path:'inicio', component: InicioComponent},
+  {path:'tema', component: TemaComponent}
   
 ];
 

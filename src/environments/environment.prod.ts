@@ -5,3 +5,4 @@ export const environment = {
   id: 0,
   foto: ''
 };
+//declaração das variaveis vazias para colocar informações na hora que for logar.

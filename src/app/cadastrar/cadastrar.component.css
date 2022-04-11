@@ -1,7 +1,18 @@
-#img-bg{
+.cadastrar{
     background-image: url('https://i.imgur.com/nGoCCh0.jpg');
     background-position:center ;
     min-height: 695px;
     background-repeat: no-repeat;
     background-size: cover;
+    
+}
+
+.bg{
+    background-color: purple;
+    color: white;
+}
+
+.h1{
+   
+    text-align: center;
 }

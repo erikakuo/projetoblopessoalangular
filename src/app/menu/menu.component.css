@@ -1,7 +1,11 @@
 p{
-    color: purple;
+    color: rgb(43, 0, 128);
 }
 
 .fs-16{
     font-size: 16;
+}
+
+.bg{
+    background-color: rgb(15, 0, 128);
 }

@@ -1,11 +1,12 @@
 import { Postagem } from "./Postagem";
 
 export class Tema{
+    public id: number
 
-public id: number;
+    public descricao: string
+    
+    public nome: string
 
-public descricao:string;
-
-public postagem:Postagem[];
+    public postagem: Postagem []
 
 }

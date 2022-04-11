@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
+import { UsuarioLogin } from '../model/UsuarioLogin';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,29 @@ import { Tema } from '../model/Tema';
 export class TemaService {
 
   constructor(
-  private http: HttpClient
-
+    private http: HttpClient
   ) { }
-  token={ //importação do http headers pra autorizar o usuario a fazer postagem
-  headers: new HttpHeaders().set('Authorization',environment.token)
-  //criamos um objeto token e colocamos o set pra validar
-  }
-  postarTema(tema:Tema): Observable<Tema>{
-    return this.http.post<Tema>('Http://localhost:8080/tema', tema, this.token)
-  }
-  getAllTema(): Observable<Tema[]>{
-    return this.http.get<Tema[]>('http://localhost:8080/tema', this.token)
-  }
+token = {
+  headers: new HttpHeaders().set('Authorization', environment.token)
+}
+
+postarTema(tema:Tema): Observable<Tema>{
+  return this.http.post<Tema>('Http://localhost:8080/temas', tema , this.token)
+}
+
+getAllTema(): Observable<Tema[]>{
+  return this.http.get<Tema[]>('Http://localhost:8080/temas', this.token)
+}
+
+getByIdTema(id: number): Observable<Tema>{
+  return this.http.get<Tema>(`Http://localhost:8080/temas/${id}`, this.token)
+}
+putTema(tema: Tema): Observable<Tema>{
+return this.http.put<Tema>('Http://localhost:8080/temas', tema, this.token)
+}
+
+deleteTema(id: number){
+  return this.http.delete(`Http://localhost:8080/temas/${id}`, this.token)
+}
 
 }

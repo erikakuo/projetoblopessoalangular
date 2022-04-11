@@ -5,35 +5,34 @@ import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(
-    private html: HttpClient) {}//libera os metodos http
+  constructor( private http: HttpClient) { }
 
-/*
-certificar os endpoints
-*/
-
-Entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-return this.html.post<UsuarioLogin>('http://localhost:8080/usuarios/logar', usuarioLogin)
-}
-Cadastrar(usuario: Usuario): Observable<Usuario> {// da referencia a model do usuario
-
-return this.html.post<Usuario>('http://localhost:8080/usuarios/cadastrar', usuario)  
-  }// sinaliza a model usuario model e o usuario controller 
-  logado(){
-    let ok:boolean=false;
-
-
-    if(environment.token!=' '){
-      ok=true;
-    }
-
-    return ok;
+cadastrar(usuario: Usuario): Observable<Usuario>{
+return this.http.post<Usuario>('http://localhost:8080/usuarios/cadastrar', usuario)
   }
 
+entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
+  return this.http.post<UsuarioLogin>('http://localhost:8080/usuarios/logar', usuarioLogin)
+  }
+
+  atualizar(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>('http://localhost:8080/usuarios/atualizar', usuario)
+      }
+
+  getByIdUsuario(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`)
+  }
+
+  logado(){
+    let ok: boolean = false
+    if (environment.token != ''){
+      ok= true
+    }
+    return ok
+  }
 }

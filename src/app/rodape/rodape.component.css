@@ -11,16 +11,27 @@ ul.social-network li{
 }
 
 .fa{
-    font-size: 35pt;
-    color: white; 
-       padding: 10px;
+    font-size: 35pt; 
+    color:rgb(13, 0, 128);
+    padding: 10px;
 }
+
 .fa-github:hover{
-color:rgb(5, 5, 5);
+color:rgb(209, 23, 23);
 }
+
 .fa-instagram:hover{
-color:#C13584;
-}
+    color:rgb(209, 23, 23);
+    }
+
 .fa-linkedin-square:hover{
-color:#007bb6;
+    color:rgb(209, 23, 23);
 }
+
+    .bg{
+        background: linear-gradient(to bottom, rgb(0, 4, 255), rgbrgb(19, 0, 128));
+    }
+
+    .bg-footer{
+        background-color: rgb(9, 0, 128);
+    }

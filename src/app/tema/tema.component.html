@@ -1,84 +1,77 @@
-<article class="container-fuild">
+<div class="container-fluid fundo">
 
-    <section class="row bg-dark">
-
+    <div class="row bg-secondary">
         <div class="col-md-12 text-white">
 
-            <a routerLink="/inicio" class="text-left">
-            <i class="fa fa-angle-double-left" aria-hidden="true"></i>Inicio
-            </a>
-            <h1>Temas</h1>
-            <h5>Temas cadastrados e temas novos:</h5>
-
-            <div class="row">
-                <div class="col-md-3">
-                    
-                    <div class="form-group">
-                        <input [(ngModel)]="tema.descricao" type="text" class="form-control" id="descricao" placeholder="digite a descricao do tema">
-                    </div>
 
 
-                    <div class="d-flex justify-content-center">
+<a routerLink='/inicio' class="text-white text-left">
+    <i class="fa fa-angle-double-left" aria-hidden="true"></i>Inicio
+</a>
+<h1 class="fs-54 text-center">Temas</h1>
+<h5 class="fs-18 text-center" >Veja aqui todos os temas cadastrados ou cadastre um novo:</h5>
+        </div>
+<div class="row d-flex justify-content mt-4 mb-5">
+<div class="col-md-3">
+    <div class="form-group">
+        <input [(ngModel)]="tema.nome" type="text" class="form-control" id="descricao" placeholder="Digte o nome">
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="tema.descricao" type="text" class="form-control" id="descricao" placeholder="Digte a descrição do tema">
+  </div>
 
-                        <button class="btn btn-light"(click)="cadastrarTema()">Cadastrar</button>
+    <div class="d-flex justify-content">
+        <button class="btn btn-light" (click)="cadastrarTema()">Cadastrar</button>
+    </div>
+</div>
 
-                    </div>
-
-                </div>
-            </div>
+</div>
+    </div>
 
 
 
+</div>
+
+
+<div class="container-fluid" >
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2 class="text-center">Todos os temas</h2>
         </div>
 
-    </section>
-</article>
+    </div>
 
+    <div class="row mt-3 mb-5 d-flex justify-content-center">
+        <div class="col-md-6">
 
-<article class="container">
-
-    <section class="row mt-5">
-        <section class="col-md-12">
-            <h2 class="text-center"> todos os temas</h2>
-        </section>
-
-    </section>
-
-
-    <section class="row">
-        <section class="col-md-6">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col" lass="text-rigth">Modificações</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                  <tr *ngFor="let tema of listaTema">
+                    <th scope="row">{{tema.id}}</th>
+                    <td>{{tema.nome}}</td>
+                    <td>{{tema.descricao}}</td> 
+                    <td>
+                    <a [routerLink]="['/tema-edit',tema.id]"><i class="fa fa-pencil-square-o ml-2" aria-hidden="true"></i></a> 
+                  
+                    <a [routerLink]="['/tema-delete',tema.id]"><i class="fa fa-trash ml-2" aria-hidden="true"></i></a>
+                  </td> 
+                    
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                        
                 </tbody>
               </table>
-        </section>
-    </section>
+
+        </div>
+    </div>
 
 
-</article>
+</div>
+
